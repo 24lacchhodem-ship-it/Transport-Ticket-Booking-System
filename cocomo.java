@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class COCOMO {
+public class cocomo {
 
     public static void main(String[] args) {
 
