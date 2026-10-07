@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class COCOMO {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // Input
+        System.out.print("Enter project size in KLOC: ");
+        double kloc = sc.nextDouble();
+
+        System.out.print("Enter cost per person-month (₹): ");
+        double costPerMonth = sc.nextDouble();
+
+        // Basic COCOMO - Organic Model
+        double effort = 2.4 * Math.pow(kloc, 1.05);
+
+        double developmentTime = 2.5 * Math.pow(effort, 0.38);
+
+        double staff = effort / developmentTime;
+
+        double totalCost = effort * costPerMonth;
+
+        // Output
+        System.out.println("\n--- COCOMO Cost Estimation ---");
+        System.out.println("Project: Transport Ticket Booking System");
+        System.out.println("Project Type: Organic");
+        System.out.println("KLOC: " + kloc);
+
+        System.out.printf("Effort: %.2f Person-Months%n", effort);
+        System.out.printf("Development Time: %.2f Months%n", developmentTime);
+        System.out.printf("Average Staff: %.2f Persons%n", staff);
+        System.out.printf("Total Development Cost: ₹%.2f%n", totalCost);
+
+        sc.close();
+    }
+}
